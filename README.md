@@ -93,6 +93,8 @@ Interval E: [88.13, 103.19] - 36 elements (3.60%)
 Execution time: 4.39 seconds
 ```
 
+![Результат виконання програми](output_screenshot.png)
+
 ### Аналіз результатів
 1. **Час виконання**: 4.39 секунд
 2. **Розподіл даних**:
@@ -161,7 +163,7 @@ program time_series_analysis
         if (len_trim(line) == 0) cycle
         
         ! Parse CSV: find first comma and extract price field
-        comma_pos = index(line, '","')
+        comma_pos = index(line, '"')
         if (comma_pos == 0) cycle
         
         start_pos = comma_pos + 3
@@ -264,7 +266,6 @@ program time_series_analysis
     end do
     print *
     
-    ! Print matrix rows
     do i = 1, alphabet_size
         write(*,'(A1,2X,$)') alphabet(i)
         do j = 1, alphabet_size
